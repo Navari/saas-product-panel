@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('admin.dashboard');
+});
+
+Route::get('login', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
+Route::post('auth', [\App\Http\Controllers\AuthController::class, 'auth'])->name('auth');
+
+Route::prefix('admin')->as('admin.')->middleware('auth')->group(function () {
+    Route::get('dashboard', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
 });
