@@ -22,4 +22,8 @@ Route::post('auth', [\App\Http\Controllers\AuthController::class, 'auth'])->name
 
 Route::prefix('admin')->as('admin.')->middleware('auth')->group(function () {
     Route::get('dashboard', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
+    Route::resource('products', \App\Http\Controllers\ProductController::class);
+    Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+    Route::resource('brands', \App\Http\Controllers\BrandController::class);
+    Route::resource('attributes', \App\Http\Controllers\AttributeController::class);
 });

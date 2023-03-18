@@ -13,13 +13,16 @@ return new class extends Migration
     {
         Schema::create('attributes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->constrained();
             $table->string('name');
             $table->string('slug');
+            $table->json('options');
             $table->string('type');
             $table->boolean('is_filterable');
             $table->boolean('is_required');
             $table->boolean('is_unique');
             $table->string('initial_value')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

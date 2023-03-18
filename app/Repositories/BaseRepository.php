@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\App;
 /**
  * @method find(int $int)
  * @method create(array $array)
- * @method where(array $parameters)
+ * @method delete()
  */
 
 abstract class BaseRepository
