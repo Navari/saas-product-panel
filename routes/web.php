@@ -25,5 +25,6 @@ Route::prefix('admin')->as('admin.')->middleware('auth')->group(function () {
     Route::resource('products', \App\Http\Controllers\ProductController::class);
     Route::resource('categories', \App\Http\Controllers\CategoryController::class);
     Route::resource('brands', \App\Http\Controllers\BrandController::class);
+    Route::resource('tags', \App\Http\Controllers\TagController::class);
     Route::resource('attributes', \App\Http\Controllers\AttributeController::class);
 });

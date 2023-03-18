@@ -63,9 +63,9 @@ const formEdit = (button) => {
     }).then(function (response) {
         let $form = $(form);
         $form.attr('action', updateUrl);
-        $form.find('input[name="name"]').val(response.data.data.name);
-        $form.find('input[name="options"]').val(response.data.data.options);
-        $form.find('select[name="type"]').val(response.data.data.type);
+        Object.keys(response.data.data).forEach(function(key) {
+            $form.find('input[name="'+key+'"]').val(response.data.data[key]);
+        });
         $(modal).modal('show');
     });
 }
