@@ -16,4 +16,11 @@ abstract class BaseModel extends Model
         });
         parent::boot();
     }
+
+    public function newQuery($excludeDeleted = true): \Illuminate\Database\Eloquent\Builder
+    {
+        return parent::newQuery($excludeDeleted)
+            ->where('company_id', '=', auth()->user()->company_id);
+    }
+
 }

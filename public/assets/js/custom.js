@@ -30,6 +30,7 @@ api.interceptors.response.use((response) => response, (error) => {
 
 
 const formSubmit = (form, button, modal) => {
+    console.log(form);
     let $form = $('#'+form);
     let url = $form.attr('action');
     let method = $form.attr('method');
@@ -48,6 +49,24 @@ const formSubmit = (form, button, modal) => {
         $('.'+modal).modal('hide');
         $('#'+button).html('Kaydet');
         $('.auto-datatable').DataTable().ajax.reload();
+    });
+}
+
+const formEdit = (button) => {
+    let $url = $(button).data('href');
+    let form = $(button).data('form');
+    let modal = $(button).data('modal');
+    let updateUrl = $(button).data('update-url');
+    api({
+        method: 'get',
+        url: $url,
+    }).then(function (response) {
+        let $form = $(form);
+        $form.attr('action', updateUrl);
+        $form.find('input[name="name"]').val(response.data.data.name);
+        $form.find('input[name="options"]').val(response.data.data.options);
+        $form.find('select[name="type"]').val(response.data.data.type);
+        $(modal).modal('show');
     });
 }
 

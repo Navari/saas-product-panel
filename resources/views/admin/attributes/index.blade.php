@@ -82,22 +82,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="form-check form-switch mb-3">
-                                            <input type="checkbox" class="form-check-input theme-choice" name="is_filterable" id="is-filtered" checked />
-                                            <label class="form-check-label" for="is-filtered">Filtrelenebilir mi ?</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-check form-switch mb-3">
-                                            <input type="checkbox" class="form-check-input theme-choice" name="is_required" id="is-required" checked />
-                                            <label class="form-check-label" for="is-required">Gerekli mi ?</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </form>
                 </div>
